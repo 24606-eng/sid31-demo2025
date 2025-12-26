@@ -12,3 +12,15 @@ services:
     volumes:
       - ./mru_fx:/app
 
+  fetcher:
+    build: .
+    container_name: fetcher
+    command: >
+      sh -c "
+      while true; do
+        python /app/fetch_rates.py;
+        sleep 86400;
+      done
+      "
+    volumes:
+      - ./fetcher:/app
