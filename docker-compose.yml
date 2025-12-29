@@ -1,7 +1,7 @@
 services:
   web:
     build: .
-    container_name: mru_fx_web
+    container_name: kawou_24606
     command: >
       sh -c "
       python manage.py makemigrations && python manage.py migrate &&
@@ -12,15 +12,15 @@ services:
     volumes:
       - ./mru_fx:/app
 
-  fetcher:
-    build: .
-    container_name: fetcher
-    command: >
-      sh -c "
-      while true; do
-        python /app/fetch_rates.py;
-        sleep 86400;
-      done
-      "
-    volumes:
-      - ./fetcher:/app
+  # fetcher:
+  #   build: .
+  #   container_name: fetcher
+  #   command: >
+  #     sh -c "
+  #     while true; do
+  #       python /app/fetch_rates.py;
+  #       sleep 86400;
+  #     done
+  # #     "
+  #   volumes:
+  #     - ./fetcher:/app
